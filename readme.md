@@ -1,4 +1,6 @@
-# Contac
+# Contact
+
+[![Build Status](https://travis-ci.com/toancong/contact.svg?branch=master)](https://travis-ci.com/toancong/contact)
 
 ## Install
 
@@ -57,8 +59,7 @@ Register the resource provider into your api config file
 
 ```
 get contact: GET contacts?filter[object_id]=1&filter[object_type]=User&filter[name]=shipping
-save contact: PUT contacts?filter[object_id]=1&filter[object_type]=User&filter[name]=shipping
-delete contact: @todo
+see more https://github.com/cloudcreativity/laravel-json-api
 ```
 
 ## Contribute

@@ -6,7 +6,6 @@ use Bean\Contact\Api\Contacts\Adapter;
 use Bean\Contact\Tests\TestCase;
 use Bean\Contact\Models\Contact;
 use CloudCreativity\LaravelJsonApi\Encoder\Parameters\EncodingParameters;
-use CloudCreativity\LaravelJsonApi\Store\Store;
 
 class ContactTest extends TestCase
 {
@@ -14,7 +13,11 @@ class ContactTest extends TestCase
     {
         factory(Contact::class, 15)->create();
         $this->assertEquals(15, Contact::count());
+    }
 
+    public function testBrowseContactByAdapter()
+    {
+        factory(Contact::class, 15)->create();
         $adapter = app()->make(Adapter::class);
         $result = $adapter->query(new EncodingParameters);
         $this->assertEquals(15, count($result->getData()));

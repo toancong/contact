@@ -21,7 +21,7 @@ class ApiResourceProvider extends AbstractProvider
     public function mount(RouteRegistrar $api): void
     {
         Route::namespace('\Bean\Contact\Api\Controllers')->group(function () use ($api) {
-            $api->resource('contacts');
+            $api->resource('contacts')->only('index', 'read', 'create', 'update');
         });
     }
 

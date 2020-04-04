@@ -28,6 +28,8 @@ class Schema extends SchemaProvider
      */
     public function getAttributes($resource)
     {
-        return $resource->toArray();
+        $attrs = $resource->toArray();
+        unset($attrs['id']);
+        return $attrs;
     }
 }

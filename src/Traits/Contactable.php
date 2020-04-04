@@ -7,7 +7,7 @@ trait Contactable
 {
     public function contacts()
     {
-        return $this->hasMany(Contact::class, 'object_id', 'id')->where('object_type', $this->getObjectName());
+        return $this->hasMany($this->getContactModel(), 'object_id', 'id')->where('object_type', $this->getObjectName());
     }
 
     public function __get($name)
@@ -20,7 +20,7 @@ trait Contactable
 
     public function contact($name)
     {
-        return Contact::where([
+        return $this->getContactModel()::where([
             'object_type' => $this->getObjectName(),
             'object_id' => $this->getKey(),
             'name' => $name,
@@ -35,10 +35,15 @@ trait Contactable
             'name' => $name,
         ];
         $contactData = array_merge($contactData, $key);
-        return Contact::updateOrCreate($key, $contactData);
+        return $this->getContactModel()::updateOrCreate($key, $contactData);
     }
 
     public function getObjectName() {
         return get_called_class();
+    }
+
+    public function getContactModel()
+    {
+        return Contact::class;
     }
 }
