@@ -62,6 +62,11 @@ get contact: GET contacts?filter[object_id]=1&filter[object_type]=User&filter[na
 see more https://github.com/cloudcreativity/laravel-json-api
 ```
 
+** Publish migration if you need change somethings
+```
+php artisan vendor:publish --provider "Bean\Contact\ServiceProvider"
+```
+
 ## Contribute
 
 PR are welcome. Please open an issue first and submit PR with a good commit message. Thanks
