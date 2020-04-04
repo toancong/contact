@@ -13,9 +13,4 @@ class Contact extends Model
         'state', 'postcode', 'country', 'phone', 'fax',
         'email', 'object_type', 'object_id', 'name',
     ];
-
-    public function scopeObjectType($query, $type)
-    {
-        $type && $query->where('object_type', 'like', '%\\'.$type);
-    }
 }
